@@ -382,3 +382,216 @@ int main()
     //switch后面整型表达式的值决定从哪个分支进入，而break决定从哪个分支跳出来。
     return 0;
 }
+
+//switch多分支选择语句。
+
+//int main()
+//{/*
+//    switch (整型表达式)
+//    {
+//        case 整型常量表达式:
+//            语句；
+//            break;    表示从这里跳出
+//    }*/
+//
+//    int day = 0;
+//    printf("请输入0到8之间的数\n");
+//    scanf("%d", &day);
+//    switch (day)
+//    {
+//    case 1:
+//        //printf("是星期一\n");
+//        //break;
+//    case 2:
+//        //printf("是星期二\n");
+//        //break;
+//    case 3:
+//        //printf("是星期三\n");
+//        //break;
+//    case 4:
+//        //printf("是星期四\n");
+//        //break;
+//    case 5:
+//        printf("是工作日\n");
+//        break;
+//    case 6:
+//        //printf("是星期六\n");
+//        //break;
+//    case 7:
+//        printf("是休息日\n");
+//        break;
+//        //switch后面整型表达式的值决定从哪个分支进入，而break决定从哪个分支跳出来。
+//    default:
+//        //除以上这些情况歪外。
+//        printf("输入错误\n");
+//            break;
+//    }
+//
+//    
+//    return 0;
+//}
+
+
+// while 循环。
+
+//while循环里面的break和continue的作用。
+
+//int main()
+//{
+//    //打印1-10数字
+//    int i = 1;
+//    while (i <= 10)
+//    {
+//        i++;                   //把i++放到这里之后程序的结果是2-11没有5。
+//        if (5 == i)
+//        {
+//            //break;          //while循环里面遇到break，则终止整个循环。
+//                          //虽然这里break是跟在if语句后面的，但是作用于while循环。
+//            continue;        //while循环里面的continue的作用是跳过本次循环中continue后面的代码，直接执行下一次循环的判断。 
+//                            //continue的结果是打印1234死循环。
+//        }
+//        printf("%d\n", i); 
+//        //i++;               
+//    }
+//     
+//
+//
+//    return 0;
+//}
+
+
+//getchar()与putchar()以及scanf()
+
+//int main()
+//{
+    //int ch = getchar();     //从键盘上获取一个字符，并把这个字符的ASCII码值赋值给ch.  getchar(),获取字符函数，并且它的类型是int整型。
+    //printf("%c\n", ch);
+    //putchar(ch);            //打印字符函数，把从键盘上获取的字符打印出来。
+    //EOF; //end of file  文件结束标志。按键为ctrl+z。它的值为（-1）。
+
+    //int ch = 0;
+    //while ((ch = getchar()) != EOF)         //  \n触发getchar()读取。
+    //{
+    //    putchar(ch);                        //putchar()打印的带换行，因为getchar()的时候按了回车。                       
+    //}
+
+    //举一个例子。
+    // 假设密码是一个字符串。
+
+    //char  password[20] = { 0 };
+    //printf("请输入密码：>");
+    //scanf("%s", password);
+    //getchar();//读取了\n;   但假如输入的密码里面带有空格，则scanf只读取空格或者\n之前的字符串，剩下的依然在缓冲区中。
+    //int ch = 0;
+    //while ((ch = getchar()) != '\n')
+    //{
+    //    ;             //这里用while循环把\n以及\n之前的都从缓冲区读走了。
+    //}
+    //printf("请确认密码（Y/N）:>");
+    //int ret = getchar();
+    //if ('Y' == ret)     //字符用单引号。
+    //{
+    //    printf("Yes\n");
+    //}
+    //else
+    //{
+    //    printf("No\n");
+    //}
+
+    //程序的结果是打印请确认密码之后并没有等待我输入Y/N，而是直接打印No.
+    //原因是因为在输入密码的时候密码结尾按了一个回车，而回车在scanf中的作用是确认我们把这个密码输入进去。scanf并不读取回车\n。
+    //所以此时缓冲区里面还剩一个\n，就被gerchar拿走了，而\n不是Y，所以进入了if语句中的else从而打印了No。
+
+
+
+
+    //return 0;
+//}
+
+//转换特定ASCII码为对应字符并输出，无需空格隔开。
+
+//int main()
+//{
+//    int arr[] = { 73,32,99,97,110,32,100,111,32,105,116,33 };
+//    int sz = sizeof(arr) / sizeof(arr[0]);   //需要遍历数组里面的元素是，用此公式计算数组长度。
+//    int i = 0;
+//    while (i < sz)
+//    {
+//        printf("%c", arr[i]);
+//        i++;
+//    }
+//
+//    return 0;
+//}
+
+
+ //  for循环。
+
+//int main()
+//{
+    //int i = 1;//初始化
+    //while (i <= 10)//判断
+    //{
+    //    printf("%d", i);
+    //    i++;//调整
+
+    //}
+
+    /*for (表达式1；表达式2；表达式3)
+    {
+        循环语句；
+
+    }
+    表达式1：初始化部分
+    表达式2：条件判断部分
+    表达式3：调整部分
+    */
+
+    //int i = 1;
+    //for (i = 1; i <= 10; i++)        // for循环的初始化部分，条件判断部分，调整部分，for后面的（）里面，容易控制循环
+    //{                                //所以for循环是用的最多的。
+    //    if (i == 5)
+    //    {
+    //        //break;                 //for循环里面的break：直接结束整个循环。
+    //        continue;                //for循环里面的continue：跳过此次循环中的continue后面的代码，直接跳到调整部分。
+    //                                 
+    //    }
+    //    
+    //    printf("%d ", i);
+
+    //}
+
+//}
+
+//一道笔试题  问一下循环循环几次。
+
+//int main()
+//{
+//    int i = 0;
+//    int k = 0;
+//    for (i = 0, k = 0; k = 0; i++, k++)
+//    {
+//        k++;
+//
+//    }
+//    return 0;
+//}
+
+
+// do while 循环
+
+int main()
+{/*
+    do               //先do  上来就是干。
+        循环语句；
+    while（表达式）；*/
+    int i = 0;
+    do
+    {
+        printf("%d", i);
+        i++;
+    } while (i <= 10);
+
+
+    return 0;
+}
